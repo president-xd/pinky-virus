@@ -240,6 +240,10 @@ echo "=============================== FINISHED =============================="
 
 5. **Entry Point:**
    - The virus's entry point remains in the text segment of the infected file, making it less suspicious and harder to detect.
+  
+### Visual Representation
+![image](https://github.com/user-attachments/assets/5a8d3bfe-92dc-4014-a4b9-edc82caa1429)
+
 
 ### Technical Details
 
@@ -268,4 +272,10 @@ echo "=============================== FINISHED =============================="
 - Use it for educational purposes only.
 
 ### Shout-Out
-- Big shout-out to tmpout.sh and guitmz; this is an extended work of theirs.
+- A big thanks for those who keeps the VX scene alive!
+- @guitmz || @TMZvx
+
+### Contributors
+- Abdul Wahab Khan
+- Asad Muhammad Channer
+- Qazi Muhammad Awais
