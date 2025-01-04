@@ -1,5 +1,9 @@
 # Pinky Virus
-It is a simple virus that aims to infect ELFs by generating dumps spaces and inserting payload between ELF and Program header. And this will let the ELF to execute that payload.
+## Overview
+
+This virus should be assembled with FASM x64 (tested with version 1.73.27 on Linux 5.11.14-gentoo). 
+It relies on the Reverse Text Segment Infection technique where the segment is extended in reverse by PAGE_SIZE to make room for the virus. This technique only works on regular ELF executables (does not work with PIE). 
+It is also not working on systems with huge pages enabled at this time. PAGE_SIZE alignment should be calculated dynamically, but this code assumes its value of 4096 for demonstration purposes. It infects the current directory (non-recursively). The entry point still resides in the .text segment, which is less suspicious.
 
 ## Installation:
 1. First clone the repository
@@ -214,11 +218,11 @@ echo " "
 echo "=============================== FINISHED =============================="
 ```
 
+# x64 ELF Infector Using Reverse Text Segment Infection
+
 ## Infection Technique in Detail
 
-It is x64 ELF Infector Using Reverse Text Segment Infection
-
-## How It Works
+### How It Works
 
 1. **Reverse Text Segment Infection:**
    - The virus extends the text segment of the ELF file in reverse by a page size (typically 4096 bytes) to make room for its code.
@@ -237,35 +241,31 @@ It is x64 ELF Infector Using Reverse Text Segment Infection
 5. **Entry Point:**
    - The virus's entry point remains in the text segment of the infected file, making it less suspicious and harder to detect.
 
-## Technical Details
+### Technical Details
 
-### Virus Type
+#### Virus Type
 - x64 ELF infector
 
-### Written In
-- Assembly language
-
-### Technique
+#### Technique
 - Reverse Text Segment Infection
 
-### Infection Scope
+#### Infection Scope
 - Infects files in the current directory (non-recursive)
 
-### Payload
-- Non-destructive
+#### Payload
+- Non-destructive (It can be destructive if any individual binds malware such as reverse shell, or ransomware etc.)
 
-### Limitations
+#### Limitations
 - Does not work with PIE executables
 - Incompatible with systems using huge pages
 - Assumes PAGE_SIZE is 4096 bytes
 
-### Entry Point
+#### Entry Point
 - Remains within the text segment, making it less suspicious
 
 ## Notes
 - This explanation assumes a PAGE_SIZE of 4096 for simplicity and demonstration purposes.
+- Use it for educational purposes only.
 
-
-
-
-
+### Shout-Out
+- Big shout-out to tmpout.sh and guitmz; this is an extended work of theirs.
