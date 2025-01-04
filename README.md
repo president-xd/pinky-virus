@@ -216,6 +216,55 @@ echo "=============================== FINISHED =============================="
 
 ## Infection Technique in Detail
 
+It is x64 ELF Infector Using Reverse Text Segment Infection
+
+## How It Works
+
+1. **Reverse Text Segment Infection:**
+   - The virus extends the text segment of the ELF file in reverse by a page size (typically 4096 bytes) to make room for its code.
+
+2. **Limitations:**
+   - This technique works only on regular ELF executables and does not work with Position-Independent Executables (PIE).
+   - The virus does not operate on systems with huge pages enabled (pages larger than 4096 bytes).
+
+3. **PAGE_SIZE Alignment:**
+   - The alignment should be dynamically calculated, but for demonstration purposes, this code assumes a page size of 4096 bytes.
+
+4. **Infection Process:**
+   - It infects files in the current directory only (non-recursive).
+   - It has no destructive payload, meaning it does not damage the files it infects.
+
+5. **Entry Point:**
+   - The virus's entry point remains in the text segment of the infected file, making it less suspicious and harder to detect.
+
+## Technical Details
+
+### Virus Type
+- x64 ELF infector
+
+### Written In
+- Assembly language
+
+### Technique
+- Reverse Text Segment Infection
+
+### Infection Scope
+- Infects files in the current directory (non-recursive)
+
+### Payload
+- Non-destructive
+
+### Limitations
+- Does not work with PIE executables
+- Incompatible with systems using huge pages
+- Assumes PAGE_SIZE is 4096 bytes
+
+### Entry Point
+- Remains within the text segment, making it less suspicious
+
+## Notes
+- This explanation assumes a PAGE_SIZE of 4096 for simplicity and demonstration purposes.
+
 
 
 
